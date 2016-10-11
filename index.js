@@ -4,6 +4,7 @@ const fs = require('fs');
 
 const promisify = require('es6-promisify');
 const safeEval = require('node-eval');
+const isObject = require('isobject');
 
 const readFile = promisify(fs.readFile);
 
@@ -16,10 +17,17 @@ const readFile = promisify(fs.readFile);
  * @param {Object|String}         [options]              Options or encoding.
  * @param {String|Null}           [option.encoding=null] The file encoding.
  * @param {String}                [option.flag=r]        The flag mode.
+ * @param {Object}                [option.context]       The object to provide into execute method.
  *
  * @returns {Promise}
  */
 module.exports = (file, options) => {
-    return readFile(file, options || 'utf-8')
-        .then((content) => safeEval(content, file));
+    const opts = isObject(options) ? options : {};
+    const fileOpts = {
+        encoding: opts.encoding || options || 'utf-8',
+        flag: opts.flag
+    };
+
+    return readFile(file, fileOpts)
+        .then(content => safeEval(content, file, opts.context));
 };
