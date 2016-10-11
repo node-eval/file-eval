@@ -18,6 +18,8 @@ Read file and eval it. Uses [node-eval](https://github.com/nodules/node-eval).
 
 Like `require`, but asynchronous and doesn't use the module cache.
 
+**NB** Internally `file-eval` will resolve passed relative paths with `path.resolve()`, not `require.resolve()`.
+
 Install
 -------
 
