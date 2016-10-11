@@ -1,6 +1,6 @@
 {
   "name": "file-eval",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Read file and eval it",
   "license": "MIT",
   "repository": "nodules/file-eval",
