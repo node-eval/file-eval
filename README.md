@@ -14,7 +14,7 @@ file-eval
 [david]:        https://david-dm.org/nodules/file-eval
 [david-img]:    http://img.shields.io/david/nodules/file-eval.svg?style=flat
 
-Read file and eval it. Uses [node-eval](https://github.com/gulp-bem/node-eval).
+Read file and eval it. Uses [node-eval](https://github.com/nodules/node-eval).
 
 Like `require`, but asynchronous and doesn't use the module cache.
 
