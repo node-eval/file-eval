@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "es6-promisify": "5.0.0",
+    "isobject": "2.1.0",
     "node-eval": "1.0.3"
   },
   "devDependencies": {

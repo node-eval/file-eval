@@ -14,9 +14,11 @@ file-eval
 [david]:        https://david-dm.org/nodules/file-eval
 [david-img]:    http://img.shields.io/david/nodules/file-eval.svg?style=flat
 
-Read file and eval it. Use [node-eval](https://github.com/gulp-bem/node-eval).
+Read file and eval it. Uses [node-eval](https://github.com/nodules/node-eval).
 
 Like `require`, but asynchronous and doesn't use the module cache.
+
+**NB** Internally `file-eval` will resolve passed relative paths with `path.resolve()`, not `require.resolve()`.
 
 Install
 -------
@@ -43,7 +45,7 @@ API
 
 ### file
 
-Type: `String`, `Buffer`, `Integer`
+Type: `String`.
 
 The filename or file descriptor
 
@@ -53,21 +55,27 @@ Type: `Object`, `String`.
 
 Options or encoding.
 
-#### option.encoding
+#### options.encoding
 
 Type: `String`, `Null`.
 
-Default: `null`.
+Default: `utf-8`.
 
 The file encoding.
 
-#### option.flag
+#### options.flag
 
 Type: `String`.
 
 Default: `r`.
 
 The flag mode.
+
+#### options.context
+
+Type: `Object`.
+
+The object to provide into execute method.
 
 License
 -------
