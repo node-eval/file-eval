@@ -57,7 +57,7 @@ Options or encoding.
 
 #### options.encoding
 
-Type: `String`, `Null`.
+Type: `String`.
 
 Default: `utf-8`.
 
