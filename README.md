@@ -43,7 +43,7 @@ API
 
 ### file
 
-Type: `String`, `Buffer`, `Integer`
+Type: `String`.
 
 The filename or file descriptor
 
