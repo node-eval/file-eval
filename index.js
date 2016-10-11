@@ -15,9 +15,9 @@ const readFile = promisify(fs.readFile);
  *
  * @param {String|Buffer|Integer} file                    The filename or file descriptor.
  * @param {Object|String}         [options]               Options or encoding.
- * @param {String|Null}           [option.encoding=utf-8] The file encoding.
- * @param {String}                [option.flag=r]         The flag mode.
- * @param {Object}                [option.context]        The object to provide into execute method.
+ * @param {String|Null}           [options.encoding=utf-8] The file encoding.
+ * @param {String}                [options.flag=r]         The flag mode.
+ * @param {Object}                [options.context]        The object to provide into execute method.
  *
  * @returns {Promise}
  */

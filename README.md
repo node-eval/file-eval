@@ -53,7 +53,7 @@ Type: `Object`, `String`.
 
 Options or encoding.
 
-#### option.encoding
+#### options.encoding
 
 Type: `String`, `Null`.
 
@@ -61,7 +61,7 @@ Default: `utf-8`.
 
 The file encoding.
 
-#### option.flag
+#### options.flag
 
 Type: `String`.
 
@@ -69,7 +69,7 @@ Default: `r`.
 
 The flag mode.
 
-#### option.context
+#### options.context
 
 Type: `Object`.
 
