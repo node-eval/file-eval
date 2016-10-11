@@ -13,11 +13,11 @@ const readFile = promisify(fs.readFile);
  *
  * Like `require`, but asynchronous and doesn't use the module cache.
  *
- * @param {String|Buffer|Integer} file                   The filename or file descriptor.
- * @param {Object|String}         [options]              Options or encoding.
- * @param {String|Null}           [option.encoding=null] The file encoding.
- * @param {String}                [option.flag=r]        The flag mode.
- * @param {Object}                [option.context]       The object to provide into execute method.
+ * @param {String|Buffer|Integer} file                    The filename or file descriptor.
+ * @param {Object|String}         [options]               Options or encoding.
+ * @param {String|Null}           [option.encoding=utf-8] The file encoding.
+ * @param {String}                [option.flag=r]         The flag mode.
+ * @param {Object}                [option.context]        The object to provide into execute method.
  *
  * @returns {Promise}
  */

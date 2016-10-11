@@ -57,7 +57,7 @@ Options or encoding.
 
 Type: `String`, `Null`.
 
-Default: `null`.
+Default: `utf-8`.
 
 The file encoding.
 
