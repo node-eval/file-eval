@@ -69,6 +69,12 @@ Default: `r`.
 
 The flag mode.
 
+#### option.context
+
+Type: `Object`.
+
+The object to provide into execute method.
+
 License
 -------
 
