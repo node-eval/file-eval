@@ -23,10 +23,19 @@
     "node-eval": "1.1.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.6.0",
-    "eslint-config-pedant": "^0.8.0"
+    "eslint-config-pedant": "^0.8.0",
+    "mocha": "^3.1.2",
+    "nyc": "^8.3.2",
+    "proxyquire": "^1.7.10",
+    "sinon": "^1.17.6",
+    "sinon-as-promised": "^4.0.2",
+    "sinon-chai": "^2.8.0"
   },
   "scripts": {
-    "test": "eslint ."
+    "pretest": "npm run lint",
+    "test": "nyc mocha",
+    "lint": "eslint ."
   }
 }
