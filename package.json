@@ -36,6 +36,7 @@
   "scripts": {
     "pretest": "npm run lint",
     "test": "nyc mocha",
+    "test:unit": "mocha",
     "lint": "eslint ."
   }
 }
