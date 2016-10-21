@@ -1,12 +1,12 @@
 'use strict';
 
-const path = require('path');
-const fs = require('fs');
+var path = require('path');
+var fs = require('fs');
 
-const promisify = require('es6-promisify');
-const safeEval = require('node-eval');
+var promisify = require('es6-promisify');
+var safeEval = require('node-eval');
 
-const readFile = promisify(fs.readFile);
+var readFile = promisify(fs.readFile);
 
 /**
  * Read file and eval it.
@@ -21,14 +21,16 @@ const readFile = promisify(fs.readFile);
  *
  * @returns {Promise}
  */
-module.exports = (file, options) => {
-    const filename = path.resolve(file);
-    const opts = typeof options === 'string' ? { encoding: options } : options || {};
-    const fileOpts = {
+module.exports = function(file, options) {
+    var filename = path.resolve(file);
+    var opts = typeof options === 'string' ? { encoding: options } : options || {};
+    var fileOpts = {
         encoding: opts.encoding || 'utf-8',
         flag: opts.flag
     };
 
     return readFile(filename, fileOpts)
-        .then(content => safeEval(content, filename, opts.context));
+        .then(function(content) {
+            return safeEval(content, filename, opts.context);
+        });
 };
