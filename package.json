@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "es6-promisify": "5.0.0",
+    "json5": "0.5.1",
     "node-eval": "1.1.0",
     "stripbom": "3.0.0"
   },
@@ -36,8 +37,8 @@
   },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "nyc mocha",
-    "test:unit": "mocha",
+    "test": "nyc mocha test/**/*.test.js",
+    "test:unit": "mocha test/**/*.test.js",
     "lint": "eslint ."
   }
 }
