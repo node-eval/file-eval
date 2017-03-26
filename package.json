@@ -9,7 +9,10 @@
     "file",
     "read",
     "eval",
-    "require"
+    "require",
+    "CommonJS",
+    "JSON",
+    "JSON5"
   ],
   "main": "index.js",
   "files": [
