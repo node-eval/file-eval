@@ -38,8 +38,10 @@
   },
   "scripts": {
     "pretest": "npm run lint",
-    "test": "nyc mocha test/**/*.test.js",
+    "test": "npm run cover && npm run examples",
     "test:unit": "mocha test/**/*.test.js",
-    "lint": "eslint ."
+    "cover": "nyc mocha test/**/*.test.js",
+    "lint": "eslint .",
+    "examples": "node examples/index.js"
   }
 }
