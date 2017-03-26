@@ -13,6 +13,30 @@ describe('file-contents-eval', function() {
         });
     });
 
+    it('should throw if extension is not supported', function() {
+        expect(function () {
+            fileContentsEval('bla bla', 'file.txt');
+        }).to.throw('Not support extension ".txt" to eval');
+    });
+
+    it('should run `node-eval` for .js extension', function() {
+        var fileContents = '{}';
+        var filePath = 'file.js';
+
+        fileContentsEval(fileContents, filePath); // eslint-disable-line no-unused-expressions
+
+        expect(nodeEvalStub).to.be.called; // eslint-disable-line no-unused-expressions
+    });
+
+    it('should run `node-eval` for .json extension', function() {
+        var fileContents = '{}';
+        var filePath = 'file.json';
+
+        fileContentsEval(fileContents, filePath); // eslint-disable-line no-unused-expressions
+
+        expect(nodeEvalStub).to.be.called; // eslint-disable-line no-unused-expressions
+    });
+
     it('should provide file contents to `node-eval`', function() {
         var fileContents = '{}';
         var filePath = 'file.js';
