@@ -8,15 +8,9 @@ describe('file-contents-eval', function() {
     beforeEach(function() {
         nodeEvalStub = sinon.stub().returns({});
 
-        fileContentsEval = proxyquire('../lib/file-contents-eval', {
+        fileContentsEval = proxyquire('../../lib/file-contents-eval', {
             'node-eval': nodeEvalStub
         });
-    });
-
-    it('should throw if extension is not supported', function() {
-        expect(function () {
-            fileContentsEval('bla bla', 'file.txt');
-        }).to.throw('Not support extension ".txt" to eval');
     });
 
     it('should run `node-eval` for .js extension', function() {
