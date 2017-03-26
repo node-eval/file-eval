@@ -4,12 +4,14 @@ var path = require('path');
 var fs = require('fs');
 
 var promisify = require('es6-promisify');
-var safeEval = require('node-eval');
+var stripBom = require('stripbom');
+
+var contentsEval = require('./lib/file-contents-eval');
 
 var readFile = promisify(fs.readFile);
 
 /**
- * Read file and eval it.
+ * Reads file and evals it.
  *
  * Like `require`, but asynchronous and doesn't use the module cache.
  *
@@ -30,7 +32,7 @@ module.exports = function(file, options) {
     };
 
     return readFile(filename, fileOpts)
-        .then(function(content) {
-            return safeEval(content, filename, opts.context);
+        .then(function(contents) {
+            return contentsEval(stripBom(contents), filename, opts.context);
         });
 };
