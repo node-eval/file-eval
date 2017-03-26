@@ -5,18 +5,18 @@ var proxyquire = require('proxyquire');
 
 describe('node-eval', function() {
     var fileEval;
-    var evalStub;
+    var nodeEvalStub;
     var readFileStub;
 
     beforeEach(function() {
-        evalStub = sinon.stub().returns({});
+        nodeEvalStub = sinon.stub().returns({});
         readFileStub = sinon.stub().resolves('{}');
 
         fileEval = proxyquire('../', {
-            'node-eval': evalStub,
-            fs: {
-                readFile: readFileStub
-            }
+            './lib/file-contents-eval': proxyquire('../lib/file-contents-eval', {
+                'node-eval': nodeEvalStub
+            }),
+            fs: { readFile: readFileStub }
         });
     });
 
@@ -26,7 +26,7 @@ describe('node-eval', function() {
 
         return fileEval(filePath)
             .then(function () {
-                expect(evalStub).to.be.calledWith(fileContents, sinon.match.string);
+                expect(nodeEvalStub).to.be.calledWith(fileContents, sinon.match.string);
             });
     });
 
@@ -37,7 +37,7 @@ describe('node-eval', function() {
             .then(function () {
                 var filename = path.resolve(filePath);
 
-                expect(evalStub).to.be.calledWith(sinon.match.string, filename);
+                expect(nodeEvalStub).to.be.calledWith(sinon.match.string, filename);
             });
     });
 
@@ -47,7 +47,7 @@ describe('node-eval', function() {
 
         return fileEval(filePath, { context: context })
             .then(function () {
-                expect(evalStub).to.be.calledWith(sinon.match.string, sinon.match.string, context);
+                expect(nodeEvalStub).to.be.calledWith(sinon.match.string, sinon.match.string, context);
             });
     });
 });
