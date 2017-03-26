@@ -4,14 +4,14 @@ var proxyquire = require('proxyquire');
 describe('read-file', function() {
     var fileEval;
     var readFileStub;
+    var evalStub;
 
     beforeEach(function() {
         readFileStub = sinon.stub().resolves('{}');
+        evalStub = sinon.stub().returns({});
 
         fileEval = proxyquire('../', {
-            './lib/file-contents-eval': proxyquire('../lib/file-contents-eval', {
-                'node-eval': sinon.stub().returns({})
-            }),
+            './lib/file-contents-eval': evalStub,
             fs: { readFile: readFileStub }
         });
     });
@@ -46,5 +46,14 @@ describe('read-file', function() {
         fileEval(filename, { flag: 'r' });
 
         expect(readFileStub).to.be.calledWithMatch(sinon.match.string, { flag: 'r' });
+    });
+
+    it('should strip bom', function() {
+        readFileStub.resolves('\uFEFFunicorn');
+
+        return fileEval('file.js')
+            .then(function () {
+                expect(evalStub).to.be.calledWith('unicorn');
+            });
     });
 });
