@@ -84,6 +84,8 @@ Formats
 
 Supports [CommonJS](#commonjs), [JSON](#json) and [JSON5](#json5) formats.
 
+> See [examples](./examples) with evaluating files with different formats.
+
 ### CommonJS
 
 Evaluates `CommonJS` files with `.js` extention.
