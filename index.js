@@ -4,6 +4,8 @@ var path = require('path');
 var fs = require('fs');
 
 var promisify = require('es6-promisify');
+var stripBom = require('stripbom');
+
 var contentsEval = require('./lib/file-contents-eval');
 
 var readFile = promisify(fs.readFile);
@@ -31,6 +33,6 @@ module.exports = function(file, options) {
 
     return readFile(filename, fileOpts)
         .then(function(contents) {
-            return contentsEval(contents, filename, opts.context);
+            return contentsEval(stripBom(contents), filename, opts.context);
         });
 };
