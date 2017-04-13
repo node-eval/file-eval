@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "description": "Read file and eval it",
   "license": "MIT",
-  "repository": "nodules/file-eval",
+  "repository": "node-eval/file-eval",
   "author": "Andrew Abramov <mail@blond.im> (github.com/blond)",
   "keywords": [
     "file",

@@ -8,13 +8,13 @@ file-eval
 [npm]:          https://www.npmjs.org/package/file-eval
 [npm-img]:      https://img.shields.io/npm/v/file-eval.svg
 
-[travis]:       https://travis-ci.org/nodules/file-eval
-[test-img]:     https://img.shields.io/travis/nodules/file-eval.svg?label=tests
+[travis]:       https://travis-ci.org/node-eval/file-eval
+[test-img]:     https://img.shields.io/travis/node-eval/file-eval.svg?label=tests
 
-[david]:        https://david-dm.org/nodules/file-eval
-[david-img]:    http://img.shields.io/david/nodules/file-eval.svg?style=flat
+[david]:        https://david-dm.org/node-eval/file-eval
+[david-img]:    http://img.shields.io/david/node-eval/file-eval.svg?style=flat
 
-Read file and eval it. Uses [node-eval](https://github.com/nodules/node-eval).
+Read file and eval it. Uses [node-eval](https://github.com/node-eval/node-eval).
 
 Like `require`, but asynchronous and doesn't use the module cache.
 
