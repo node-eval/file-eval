@@ -20,7 +20,7 @@
     "index.js"
   ],
   "engines": {
-    "node": ">= 0.10"
+    "node": ">= 0.12"
   },
   "dependencies": {
     "es6-promisify": "5.0.0",
