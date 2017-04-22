@@ -4,7 +4,6 @@ var path = require('path');
 var fs = require('fs');
 
 var promisify = require('es6-promisify');
-var stripBom = require('stripbom');
 
 var contentsEval = require('./lib/file-contents-eval');
 
@@ -29,7 +28,7 @@ module.exports = function(file, options) {
 
     return readFile(filename, fileOpts)
         .then(function(contents) {
-            return contentsEval(stripBom(contents), filename, options && options.context);
+            return contentsEval(contents, filename, options && options.context);
         });
 };
 
@@ -51,7 +50,7 @@ module.exports.sync = function(file, options) {
     var fileOpts = getFileOpts(options);
 
     var contents = fs.readFileSync(filename, fileOpts);
-    return contentsEval(stripBom(contents), filename, options && options.context);
+    return contentsEval(contents, filename, options && options.context);
 };
 
 /**
