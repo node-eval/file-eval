@@ -79,6 +79,11 @@ Type: `Object`.
 
 The object to provide into execute method.
 
+### fileEval.sync(file[, options])
+
+Synchronous version of [fileEval](#fileevalfile-options).
+Method signature is same.
+
 Formats
 -------
 
