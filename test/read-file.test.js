@@ -47,13 +47,4 @@ describe('read-file', function() {
 
         expect(readFileStub).to.be.calledWithMatch(sinon.match.string, { flag: 'r' });
     });
-
-    it('should strip bom', function() {
-        readFileStub.resolves('\uFEFFunicorn');
-
-        return fileEval('file.js')
-            .then(function () {
-                expect(evalStub).to.be.calledWith('unicorn');
-            });
-    });
 });
