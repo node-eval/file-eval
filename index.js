@@ -25,7 +25,7 @@ var readFile = promisify(fs.readFile);
  */
 module.exports = function(file, options) {
     var filename = path.resolve(file);
-    var fileOpts = prepareOpts(options);
+    var fileOpts = getFileOpts(options);
 
     return readFile(filename, fileOpts)
         .then(function(contents) {
@@ -48,7 +48,7 @@ module.exports = function(file, options) {
  */
 module.exports.sync = function(file, options) {
     var filename = path.resolve(file);
-    var fileOpts = prepareOpts(options);
+    var fileOpts = getFileOpts(options);
 
     var contents = fs.readFileSync(filename, fileOpts);
     return contentsEval(stripBom(contents), filename, options && options.context);
@@ -64,7 +64,7 @@ module.exports.sync = function(file, options) {
  *
  * @returns {Object}
  */
-function prepareOpts(options) {
+function getFileOpts(options) {
     var opts = typeof options === 'string' ? { encoding: options } : options || {};
     var fileOpts = {
         encoding: opts.encoding || 'utf-8',
@@ -72,4 +72,3 @@ function prepareOpts(options) {
     };
     return fileOpts;
 }
-
