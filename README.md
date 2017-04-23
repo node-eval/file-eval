@@ -1,6 +1,8 @@
 file-eval
 =========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/node-eval/file-eval.svg)](https://greenkeeper.io/)
+
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
 [![Dependency Status][david-img]][david]
