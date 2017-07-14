@@ -3,6 +3,7 @@ file-eval
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
+[![Coverage Status][coverage-img]][coveralls]
 [![Dependency Status][david-img]][david]
 
 [npm]:          https://www.npmjs.org/package/file-eval
@@ -10,6 +11,9 @@ file-eval
 
 [travis]:       https://travis-ci.org/node-eval/file-eval
 [test-img]:     https://img.shields.io/travis/node-eval/file-eval.svg?label=tests
+
+[coveralls]:      https://coveralls.io/r/node-eval/file-eval
+[coverage-img]:   https://img.shields.io/coveralls/node-eval/file-eval.svg
 
 [david]:        https://david-dm.org/node-eval/file-eval
 [david-img]:    http://img.shields.io/david/node-eval/file-eval.svg?style=flat
