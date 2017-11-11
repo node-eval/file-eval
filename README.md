@@ -10,13 +10,13 @@ file-eval
 [npm-img]:      https://img.shields.io/npm/v/file-eval.svg
 
 [travis]:       https://travis-ci.org/node-eval/file-eval
-[test-img]:     https://img.shields.io/travis/node-eval/file-eval/master.svg?style=flat&label=tests
+[test-img]:     https://img.shields.io/travis/node-eval/file-eval/master.svg?label=tests
 
-[coveralls]:      https://coveralls.io/r/node-eval/file-eval
-[coverage-img]:   https://img.shields.io/coveralls/node-eval/file-eval.svg
+[coveralls]:    https://coveralls.io/r/node-eval/file-eval
+[coverage-img]: https://img.shields.io/coveralls/node-eval/file-eval/master.svg
 
 [david]:        https://david-dm.org/node-eval/file-eval
-[david-img]:    http://img.shields.io/david/node-eval/file-eval.svg?style=flat
+[david-img]:    http://img.shields.io/david/node-eval/file-eval/master.svg
 
 Read file and eval it. Uses [node-eval](https://github.com/node-eval/node-eval).
 
