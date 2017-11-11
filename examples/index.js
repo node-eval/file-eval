@@ -1,13 +1,13 @@
-var path = require('path');
+const path = require('path');
 
-var fileEval = require('../index');
+const fileEval = require('../index');
 
-var filenames = ['file.js', 'file.json', 'file.json5'];
+const filenames = ['file.js', 'file.json', 'file.json5'];
 
-filenames.forEach(function (name) {
-    var filename = path.join(__dirname, 'fixtures', name);
+filenames.forEach(name => {
+    const filename = path.join(__dirname, 'fixtures', name);
 
     fileEval(filename)
-        .then(data => console.log(data))
-        .catch(err => console.log(err));
+        .then(console.log)
+        .catch(console.error);
 });
