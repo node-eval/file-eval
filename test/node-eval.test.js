@@ -1,14 +1,16 @@
-var path = require('path');
+'use strict';
 
-var sinon = require('sinon');
-var proxyquire = require('proxyquire');
+const path = require('path');
 
-describe('node-eval', function() {
-    var fileEval;
-    var nodeEvalStub;
-    var readFileStub;
+const sinon = require('sinon');
+const proxyquire = require('proxyquire');
 
-    beforeEach(function() {
+describe('node-eval', () => {
+    let fileEval;
+    let nodeEvalStub;
+    let readFileStub;
+
+    beforeEach(() => {
         nodeEvalStub = sinon.stub().returns({});
         readFileStub = sinon.stub().resolves('{}');
 
@@ -20,33 +22,33 @@ describe('node-eval', function() {
         });
     });
 
-    it('should provide file contents to `node-eval`', function() {
-        var filePath = 'file.js';
-        var fileContents = '{}';
+    it('should provide file contents to `node-eval`', () => {
+        const filePath = 'file.js';
+        const fileContents = '{}';
 
         return fileEval(filePath)
-            .then(function () {
+            .then(() => {
                 expect(nodeEvalStub).to.be.calledWith(fileContents, sinon.match.string);
             });
     });
 
-    it('should provide absolute filename to `node-eval`', function() {
-        var filePath = 'file.js';
+    it('should provide absolute filename to `node-eval`', () => {
+        const filePath = 'file.js';
 
         return fileEval(filePath)
-            .then(function () {
-                var filename = path.resolve(filePath);
+            .then(() => {
+                const filename = path.resolve(filePath);
 
                 expect(nodeEvalStub).to.be.calledWith(sinon.match.string, filename);
             });
     });
 
-    it('should provide context to `node-eval`', function() {
-        var filePath = 'file.js';
-        var context = {};
+    it('should provide context to `node-eval`', () => {
+        const filePath = 'file.js';
+        const context = {};
 
-        return fileEval(filePath, { context: context })
-            .then(function () {
+        return fileEval(filePath, { context })
+            .then(() => {
                 expect(nodeEvalStub).to.be.calledWith(sinon.match.string, sinon.match.string, context);
             });
     });
