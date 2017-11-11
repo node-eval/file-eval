@@ -1,11 +1,13 @@
-var sinon = require('sinon');
-var proxyquire = require('proxyquire');
+'use strict';
 
-describe('file-contents-eval', function() {
-    var fileContentsEval;
-    var nodeEvalStub;
+const sinon = require('sinon');
+const proxyquire = require('proxyquire');
 
-    beforeEach(function() {
+describe('file-contents-eval', () => {
+    let fileContentsEval;
+    let nodeEvalStub;
+
+    beforeEach(() => {
         nodeEvalStub = sinon.stub().returns({});
 
         fileContentsEval = proxyquire('../../lib/file-contents-eval', {
@@ -13,46 +15,46 @@ describe('file-contents-eval', function() {
         });
     });
 
-    it('should run `node-eval` for .js extension', function() {
-        var fileContents = '{}';
-        var filePath = 'file.js';
+    it('should run `node-eval` for .js extension', () => {
+        const fileContents = '{}';
+        const filePath = 'file.js';
 
         fileContentsEval(fileContents, filePath); // eslint-disable-line no-unused-expressions
 
         expect(nodeEvalStub).to.be.called; // eslint-disable-line no-unused-expressions
     });
 
-    it('should run `node-eval` for .json extension', function() {
-        var fileContents = '{}';
-        var filePath = 'file.json';
+    it('should run `node-eval` for .json extension', () => {
+        const fileContents = '{}';
+        const filePath = 'file.json';
 
         fileContentsEval(fileContents, filePath); // eslint-disable-line no-unused-expressions
 
         expect(nodeEvalStub).to.be.called; // eslint-disable-line no-unused-expressions
     });
 
-    it('should provide file contents to `node-eval`', function() {
-        var fileContents = '{}';
-        var filePath = 'file.js';
+    it('should provide file contents to `node-eval`', () => {
+        const fileContents = '{}';
+        const filePath = 'file.js';
 
         fileContentsEval(fileContents, filePath);
 
         expect(nodeEvalStub).to.be.calledWith(fileContents);
     });
 
-    it('should provide filename to `node-eval`', function() {
-        var filePath = 'file.js';
-        var fileContents = '{}';
+    it('should provide filename to `node-eval`', () => {
+        const filePath = 'file.js';
+        const fileContents = '{}';
 
         fileContentsEval(fileContents, filePath);
 
         expect(nodeEvalStub).to.be.calledWith(sinon.match.string, filePath);
     });
 
-    it('should provide context to `node-eval`', function() {
-        var filePath = 'file.js';
-        var fileContents = '{}';
-        var context = {};
+    it('should provide context to `node-eval`', () => {
+        const filePath = 'file.js';
+        const fileContents = '{}';
+        const context = {};
 
         fileContentsEval(fileContents, filePath, context)
 

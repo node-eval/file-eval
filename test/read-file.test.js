@@ -1,12 +1,14 @@
-var sinon = require('sinon');
-var proxyquire = require('proxyquire');
+'use strict';
 
-describe('read-file', function() {
-    var fileEval;
-    var readFileStub;
-    var evalStub;
+const sinon = require('sinon');
+const proxyquire = require('proxyquire');
 
-    beforeEach(function() {
+describe('read-file', () => {
+    let fileEval;
+    let readFileStub;
+    let evalStub;
+
+    beforeEach(() => {
         readFileStub = sinon.stub().resolves('{}');
         evalStub = sinon.stub().returns({});
 
@@ -16,32 +18,32 @@ describe('read-file', function() {
         });
     });
 
-    it('should read with `utf-8` encoding by default', function() {
-        var filename = 'file.js';
+    it('should read with `utf-8` encoding by default', () => {
+        const filename = 'file.js';
 
         fileEval(filename);
 
         expect(readFileStub).to.be.calledWithMatch(sinon.match.string, { encoding: 'utf-8' });
     });
 
-    it('should read with specified encoding', function() {
-        var filename = 'file.js';
+    it('should read with specified encoding', () => {
+        const filename = 'file.js';
 
         fileEval(filename, { encoding: 'ascii' });
 
         expect(readFileStub).to.be.calledWithMatch(sinon.match.string, { encoding: 'ascii' });
     });
 
-    it('should support encoding as string argument', function() {
-        var filename = 'file.js';
+    it('should support encoding as string argument', () => {
+        const filename = 'file.js';
 
         fileEval(filename, 'ascii');
 
         expect(readFileStub).to.be.calledWithMatch(sinon.match.string, { encoding: 'ascii' });
     });
 
-    it('should read with specified flag', function() {
-        var filename = 'file.js';
+    it('should read with specified flag', () => {
+        const filename = 'file.js';
 
         fileEval(filename, { flag: 'r' });
 

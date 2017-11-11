@@ -1,20 +1,22 @@
-var fileContentsEval = require('../../lib/file-contents-eval');
+'use strict';
 
-describe('file-contents-eval', function() {
-    it('should support JSON', function() {
-        var fileContents = '{ "text": "bla" }';
-        var filePath = 'file.json';
+const fileContentsEval = require('../../lib/file-contents-eval');
 
-        var res = fileContentsEval(fileContents, filePath);
+describe('file-contents-eval', () => {
+    it('should support JSON', () => {
+        const fileContents = '{ "text": "bla" }';
+        const filePath = 'file.json';
+
+        const res = fileContentsEval(fileContents, filePath);
 
         expect(res).to.be.deep.equal({ text: 'bla' });
     });
 
-    it('should support JSON5', function() {
-        var fileContents = "{ text: 'bla' }";
-        var filePath = 'file.json5';
+    it('should support JSON5', () => {
+        const fileContents = "{ text: 'bla' }";
+        const filePath = 'file.json5';
 
-        var res = fileContentsEval(fileContents, filePath);
+        const res = fileContentsEval(fileContents, filePath);
 
         expect(res).to.be.deep.equal({ text: 'bla' });
     });

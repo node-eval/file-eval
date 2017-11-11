@@ -1,29 +1,31 @@
-var fileContentsEval = require('../../lib/file-contents-eval');
+'use strict';
 
-describe('file-contents-eval', function() {
-    it('should strip Bom with .js', function() {
-        var fileContents = '\uFEFF"unicorn"';
-        var filePath = 'file.js';
+const fileContentsEval = require('../../lib/file-contents-eval');
 
-        var res = fileContentsEval(fileContents, filePath);
+describe('file-contents-eval', () => {
+    it('should strip Bom with .js', () => {
+        const fileContents = '\uFEFF"unicorn"';
+        const filePath = 'file.js';
 
-        expect(res).to.be.deep.equal('unicorn');
-    });
-
-    it('should strip Bom with .json', function() {
-        var fileContents = '\uFEFF"unicorn"';
-        var filePath = 'file.json';
-
-        var res = fileContentsEval(fileContents, filePath);
+        const res = fileContentsEval(fileContents, filePath);
 
         expect(res).to.be.deep.equal('unicorn');
     });
 
-    it('should strip Bom with .json5', function() {
-        var fileContents = '\uFEFF"unicorn"';
-        var filePath = 'file.json5';
+    it('should strip Bom with .json', () => {
+        const fileContents = '\uFEFF"unicorn"';
+        const filePath = 'file.json';
 
-        var res = fileContentsEval(fileContents, filePath);
+        const res = fileContentsEval(fileContents, filePath);
+
+        expect(res).to.be.deep.equal('unicorn');
+    });
+
+    it('should strip Bom with .json5', () => {
+        const fileContents = '\uFEFF"unicorn"';
+        const filePath = 'file.json5';
+
+        const res = fileContentsEval(fileContents, filePath);
 
         expect(res).to.be.deep.equal('unicorn');
     });
