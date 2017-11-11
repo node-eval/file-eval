@@ -1,13 +1,13 @@
 'use strict';
 
-var path = require('path');
-var fs = require('fs');
+const path = require('path');
+const fs = require('fs');
 
-var promisify = require('es6-promisify');
+const promisify = require('es6-promisify');
 
-var contentsEval = require('./lib/file-contents-eval');
+const contentsEval = require('./lib/file-contents-eval');
 
-var readFile = promisify(fs.readFile);
+const readFile = promisify(fs.readFile);
 
 /**
  * Reads file and evals it.
@@ -22,14 +22,12 @@ var readFile = promisify(fs.readFile);
  *
  * @returns {Promise}
  */
-module.exports = function(file, options) {
-    var filename = path.resolve(file);
-    var fileOpts = getFileOpts(options);
+module.exports = (file, options) => {
+    const filename = path.resolve(file);
+    const fileOpts = getFileOpts(options);
 
     return readFile(filename, fileOpts)
-        .then(function(contents) {
-            return contentsEval(contents, filename, options && options.context);
-        });
+        .then(contents => contentsEval(contents, filename, options && options.context));
 };
 
 /**
@@ -45,11 +43,11 @@ module.exports = function(file, options) {
  *
  * @returns {*}
  */
-module.exports.sync = function(file, options) {
-    var filename = path.resolve(file);
-    var fileOpts = getFileOpts(options);
+module.exports.sync = (file, options) => {
+    const filename = path.resolve(file);
+    const fileOpts = getFileOpts(options);
 
-    var contents = fs.readFileSync(filename, fileOpts);
+    const contents = fs.readFileSync(filename, fileOpts);
     return contentsEval(contents, filename, options && options.context);
 };
 
@@ -64,8 +62,8 @@ module.exports.sync = function(file, options) {
  * @returns {Object}
  */
 function getFileOpts(options) {
-    var opts = typeof options === 'string' ? { encoding: options } : options || {};
-    var fileOpts = {
+    const opts = typeof options === 'string' ? { encoding: options } : options || {};
+    const fileOpts = {
         encoding: opts.encoding || 'utf-8',
         flag: opts.flag
     };
