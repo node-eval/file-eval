@@ -1,6 +1,15 @@
 Changelog
 =========
 
+v2.0.0 (2017-11-12)
+-------------------
+
+* Removed support for Node.js v0.10 and v0.12 (@blond [#41]).
+* Used `any-eval` instead of `node-eval` (@blond [#45]).
+
+[#41]: https://github.com/node-eval/file-eval/pull/41
+[#45]: https://github.com/node-eval/file-eval/pull/45
+
 v1.3.0 (2017-11-11)
 -------------------
 
