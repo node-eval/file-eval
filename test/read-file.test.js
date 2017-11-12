@@ -4,16 +4,14 @@ const sinon = require('sinon');
 const proxyquire = require('proxyquire');
 
 describe('read-file', () => {
-    let fileEval;
-    let readFileStub;
-    let evalStub;
+    let fileEval, readFileStub, anyEvalStub;
 
     beforeEach(() => {
         readFileStub = sinon.stub().resolves('{}');
-        evalStub = sinon.stub().returns({});
+        anyEvalStub = sinon.stub().returns({});
 
-        fileEval = proxyquire('../', {
-            './lib/file-contents-eval': evalStub,
+        fileEval = proxyquire('../index.js', {
+            'any-eval': anyEvalStub,
             fs: { readFile: readFileStub }
         });
     });

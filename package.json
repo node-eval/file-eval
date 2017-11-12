@@ -16,16 +16,14 @@
   ],
   "main": "index.js",
   "files": [
-    "lib/",
     "index.js"
   ],
   "engines": {
     "node": ">= 4"
   },
   "dependencies": {
-    "es6-promisify": "5.0.0",
-    "json5": "0.5.1",
-    "node-eval": "2.0.0"
+    "any-eval": "1.0.0",
+    "es6-promisify": "5.0.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
