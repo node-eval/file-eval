@@ -5,7 +5,7 @@ const fs = require('fs');
 
 const promisify = require('es6-promisify');
 
-const contentsEval = require('./lib/file-contents-eval');
+const anyEval = require('any-eval');
 
 const readFile = promisify(fs.readFile);
 
@@ -27,7 +27,7 @@ module.exports = (file, options) => {
     const fileOpts = getFileOpts(options);
 
     return readFile(filename, fileOpts)
-        .then(contents => contentsEval(contents, filename, options && options.context));
+        .then(contents => anyEval(contents, filename, options && options.context));
 };
 
 /**
@@ -46,9 +46,9 @@ module.exports = (file, options) => {
 module.exports.sync = (file, options) => {
     const filename = path.resolve(file);
     const fileOpts = getFileOpts(options);
-
     const contents = fs.readFileSync(filename, fileOpts);
-    return contentsEval(contents, filename, options && options.context);
+
+    return anyEval(contents, filename, options && options.context);
 };
 
 /**
